@@ -23,6 +23,22 @@ export function hoursLoad({ date }) {
 
         li.textContent = hour
 
+        if (hour === "9:00") {
+            addHourHeader("Manhã")
+        } else if (hour === "13:00") {
+            addHourHeader("Tarde")
+        } else if (hour === "18:00") {
+            addHourHeader("Noite")
+        }
+
         hours.append(li)
     })
+}
+
+function addHourHeader(title) {
+    const header = document.createElement("li")
+    header.classList.add("hour-period")
+    header.textContent = title
+
+    hours.append(header)
 }
